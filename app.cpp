@@ -32,18 +32,25 @@ void app_init(void)
   TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
 
   //Timer object
-  efrtimer mytimer(&timerInit , &timerCCInit , 15625);
+  efrtimers *timer;
+
+
+  efrtimer0 mytimer(&timerInit , &timerCCInit , 32768);
+
+  timer = &mytimer;
+
   //GPIO Object
   gpio myled(0,gpioModePushPull,gpioPortB);
   gpio mybtn(1,gpioModeInput,gpioPortB);
   myled.setPin();
 
+  timer->startTimer();
 
   while(true)
     {
-      if(mytimer.timeoutoccured())
+      if(timer->timeoutoccured())
         {
-          mytimer.cleartimerflags();
+          timer->cleartimerflags();
           myled.togglePin();
         }
     }

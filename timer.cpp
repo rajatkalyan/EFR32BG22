@@ -8,7 +8,9 @@
 
 #include "timer.h"
 
-volatile bool timeroverflowed = false;
+volatile bool timer0_overflowed = false;
+
+volatile bool timer1_overflowed = false;
 
 /*
  * I will be using dynamic polymorphism here to implement all the timers , 01234
@@ -20,13 +22,22 @@ void TIMER0_IRQHandler(void)
   /* Clear flag for TIMER0 overflow interrupt */
   TIMER_IntClear(TIMER0, TIMER_IF_OF);
 
-  timeroverflowed = true;
+  timer0_overflowed = true;
 
 }
 
-efrtimer :: efrtimer(TIMER_Init_TypeDef *timerptr , TIMER_InitCC_TypeDef *timerchannel
+void TIMER1_IRQHandler(void)
+{
+  /* Clear flag for TIMER0 overflow interrupt */
+  TIMER_IntClear(TIMER1, TIMER_IF_OF);
+
+  timer1_overflowed = true;
+
+}
+
+efrtimer0 :: efrtimer0(TIMER_Init_TypeDef *timerptr , TIMER_InitCC_TypeDef *timerchannel
                      , uint32_t milliseconds)
-                :mytimerptr(timerptr),mytimerchannel(timerchannel)
+                 :mytimerptr(timerptr),mytimerchannel(timerchannel)
                       ,time_ms(milliseconds)
 {
     CMU_ClockEnable(cmuClock_TIMER0, true);
@@ -44,52 +55,51 @@ efrtimer :: efrtimer(TIMER_Init_TypeDef *timerptr , TIMER_InitCC_TypeDef *timerc
 //DO not remove the below Sequence
     this->setOverflow(milliseconds);
 
-    // Now start the TIMER
-    this->startTimer();
+
 }
 
 
-bool efrtimer :: timeoutoccured(void)
+bool efrtimer0 :: timeoutoccured(void)
 {
-  return timeroverflowed;
+  return timer0_overflowed;
 }
 
-void efrtimer :: cleartimerflags()
+void efrtimer0 :: cleartimerflags()
 {
-    timeroverflowed = false;
+  timer0_overflowed = false;
 }
 
-void efrtimer :: enableOnInit(bool enable)
+void efrtimer0 :: enableOnInit(bool enable)
 {
-  mytimerptr->enable = enable;
+    mytimerptr->enable = enable;
 }
-void efrtimer :: setPrescaler(TIMER_Prescale_TypeDef prescale)
+void efrtimer0 :: setPrescaler(TIMER_Prescale_TypeDef prescale)
 {
-  mytimerptr->prescale = prescale;
+    mytimerptr->prescale = prescale;
 }
-void efrtimer :: selectClock(TIMER_ClkSel_TypeDef clock)
+void efrtimer0 :: selectClock(TIMER_ClkSel_TypeDef clock)
 {
-  mytimerptr->clkSel = clock;
+    mytimerptr->clkSel = clock;
 }
-void efrtimer :: setMode(TIMER_CCMode_TypeDef timerMode)
+void efrtimer0 :: setMode(TIMER_CCMode_TypeDef timerMode)
 {
-  mytimerchannel->mode = timerMode;
+    mytimerchannel->mode = timerMode;
 }
-void efrtimer :: oneShot(bool enable)
+void efrtimer0 :: oneShot(bool enable)
 {
-  mytimerptr->oneShot = enable;
+    mytimerptr->oneShot = enable;
 }
-void efrtimer :: otherTimerEffect(bool enable)
+void efrtimer0 :: otherTimerEffect(bool enable)
 {
-  mytimerptr->sync = enable;
+    mytimerptr->sync = enable;
 }
 
-void efrtimer :: setOverflow(uint32_t oveflowValue)
+void efrtimer0 :: setOverflow(uint32_t oveflowValue)
 {
   TIMER_TopSet(TIMER0, oveflowValue);
 }
 
-void efrtimer :: startTimer(void)
+void efrtimer0 :: startTimer(void)
 {
   // Now start the TIMER
   mytimerptr->enable = true;
@@ -101,4 +111,88 @@ void efrtimer :: startTimer(void)
 }
 
 
+
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ * */
+
+efrtimer1 :: efrtimer1(TIMER_Init_TypeDef *timerptr , TIMER_InitCC_TypeDef *timerchannel
+                     , uint32_t milliseconds)
+                 :mytimerptr(timerptr),mytimerchannel(timerchannel)
+                      ,time_ms(milliseconds)
+{
+    CMU_ClockEnable(cmuClock_TIMER1, true);
+
+    this->setPrescaler(timerPrescale1024);
+    this->enableOnInit(false);
+    this->setMode(timerCCModeCompare);
+
+    TIMER_Init(TIMER1, mytimerptr);
+    TIMER_InitCC(TIMER1, 0, mytimerchannel);
+
+    // Enable TIMER0 interrupt vector in NVIC
+    NVIC_EnableIRQ(TIMER1_IRQn);
+
+//DO not remove the below Sequence
+    this->setOverflow(milliseconds);
+
+
+}
+
+
+bool efrtimer1 :: timeoutoccured(void)
+{
+  return timer1_overflowed;
+}
+
+void efrtimer1 :: cleartimerflags()
+{
+  timer1_overflowed = false;
+}
+
+void efrtimer1 :: enableOnInit(bool enable)
+{
+    mytimerptr->enable = enable;
+}
+void efrtimer1 :: setPrescaler(TIMER_Prescale_TypeDef prescale)
+{
+    mytimerptr->prescale = prescale;
+}
+void efrtimer1 :: selectClock(TIMER_ClkSel_TypeDef clock)
+{
+    mytimerptr->clkSel = clock;
+}
+void efrtimer1 :: setMode(TIMER_CCMode_TypeDef timerMode)
+{
+    mytimerchannel->mode = timerMode;
+}
+void efrtimer1 :: oneShot(bool enable)
+{
+    mytimerptr->oneShot = enable;
+}
+void efrtimer1 :: otherTimerEffect(bool enable)
+{
+    mytimerptr->sync = enable;
+}
+
+void efrtimer1 :: setOverflow(uint32_t oveflowValue)
+{
+  TIMER_TopSet(TIMER1, oveflowValue);
+}
+
+void efrtimer1 :: startTimer(void)
+{
+  // Now start the TIMER
+  mytimerptr->enable = true;
+  TIMER_Enable(TIMER1, true);
+
+  //ENable INterrypr
+
+  TIMER_IntEnable(TIMER1, TIMER_IF_OF);
+}
 
