@@ -13,15 +13,18 @@
 
 typedef void *timercallback_t(void);
 
-class timer
+class efrtimer
 {
 private:
   uint32_t time_ms;
-
+  TIMER_Init_TypeDef *mytimerptr;
+  TIMER_InitCC_TypeDef *mytimerchannel;
 public:
-  timer(TIMER_Init_TypeDef *timerptr , TIMER_InitCC_TypeDef *timerchannel , timercallback_t isrfunction);
+  efrtimer(TIMER_Init_TypeDef *timerptr , TIMER_InitCC_TypeDef *timerchannel , uint32_t milliseconds);
   void settimeout(uint32_t timeout);
   void clearoverflowflags(void);
+  bool timeoutoccured(void);
+  void cleartimerflags();
 };
 
 
