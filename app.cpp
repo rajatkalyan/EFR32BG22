@@ -31,17 +31,16 @@ void app_init(void)
   TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
   TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
 
-  //Timer object
+  //Pointer to virtual timer class
   efrtimers *timer;
 
-
-  efrtimer0 mytimer(&timerInit , &timerCCInit , 32768);
+  //Actual timer implementation;
+  efrtimer3 mytimer(&timerInit , &timerCCInit , 32768);
 
   timer = &mytimer;
 
   //GPIO Object
   gpio myled(0,gpioModePushPull,gpioPortB);
-  gpio mybtn(1,gpioModeInput,gpioPortB);
   myled.setPin();
 
   timer->startTimer();

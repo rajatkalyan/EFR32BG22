@@ -87,4 +87,52 @@ public:
 };
 
 
+class efrtimer2 : public efrtimers
+{
+private:
+  TIMER_InitCC_TypeDef *mytimerchannel;
+  TIMER_Init_TypeDef *mytimerptr;
+  uint32_t time_ms;
+
+public:
+  efrtimer2(TIMER_Init_TypeDef *timerptr , TIMER_InitCC_TypeDef *timerchannel , uint32_t milliseconds);
+  bool timeoutoccured(void);
+  void cleartimerflags();
+
+  //timer functions
+  void enableOnInit(bool enable);
+  void setPrescaler(TIMER_Prescale_TypeDef prescale);
+  void selectClock(TIMER_ClkSel_TypeDef clock);
+  void setMode(TIMER_CCMode_TypeDef timerMode);
+  void oneShot(bool enable);
+  void otherTimerEffect(bool enable);
+  void setOverflow(uint32_t oveflowValue);
+  void startTimer(void);
+};
+
+
+class efrtimer3 : public efrtimers
+{
+private:
+  TIMER_InitCC_TypeDef *mytimerchannel;
+  TIMER_Init_TypeDef *mytimerptr;
+  uint32_t time_ms;
+
+public:
+  efrtimer3(TIMER_Init_TypeDef *timerptr , TIMER_InitCC_TypeDef *timerchannel , uint32_t milliseconds);
+  bool timeoutoccured(void);
+  void cleartimerflags();
+
+  //timer functions
+  void enableOnInit(bool enable);
+  void setPrescaler(TIMER_Prescale_TypeDef prescale);
+  void selectClock(TIMER_ClkSel_TypeDef clock);
+  void setMode(TIMER_CCMode_TypeDef timerMode);
+  void oneShot(bool enable);
+  void otherTimerEffect(bool enable);
+  void setOverflow(uint32_t oveflowValue);
+  void startTimer(void);
+};
+
+
 #endif /* TIMER_H_ */
