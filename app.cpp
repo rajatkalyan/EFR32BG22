@@ -31,20 +31,14 @@ void app_init(void)
   TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
   TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
 
-  timerInit.prescale = timerPrescale1024;
-  // Don't start counter on initialization
-  timerInit.enable = false;
-
-  // PWM mode sets/clears the output on compare/overflow events
-  timerCCInit.mode = timerCCModeCompare;
-
-
-  efrtimer mytimer(&timerInit , &timerCCInit , 500);
-
+  //Timer object
+  efrtimer mytimer(&timerInit , &timerCCInit , 15625);
+  //GPIO Object
   gpio myled(0,gpioModePushPull,gpioPortB);
   gpio mybtn(1,gpioModeInput,gpioPortB);
-
   myled.setPin();
+
+
   while(true)
     {
       if(mytimer.timeoutoccured())

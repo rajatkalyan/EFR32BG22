@@ -25,7 +25,18 @@ public:
   void clearoverflowflags(void);
   bool timeoutoccured(void);
   void cleartimerflags();
+
+  //timer functions
+  void enableOnInit(bool enable);
+  void setPrescaler(TIMER_Prescale_TypeDef prescale);
+  void selectClock(TIMER_ClkSel_TypeDef clock);
+  void setMode(TIMER_CCMode_TypeDef timerMode);
+  void oneShot(bool enable);
+  void otherTimerEffect(bool enable);
+  void setOverflow(uint32_t oveflowValue);
+  void startTimer(void);
 };
+
 
 
 #endif /* TIMER_H_ */
