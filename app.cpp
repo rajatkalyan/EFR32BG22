@@ -32,12 +32,7 @@ void app_init(void)
   TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
 
   //Pointer to virtual timer class
-  efrtimers *timer;
-
-  //Actual timer implementation;
-  efrtimer3 mytimer(&timerInit , &timerCCInit , 32768);
-
-  timer = &mytimer;
+  efrtimers *timer = new efrtimer3(&timerInit , &timerCCInit , 37500);
 
   //GPIO Object
   gpio myled(0,gpioModePushPull,gpioPortB);
