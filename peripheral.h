@@ -36,16 +36,18 @@ class i2c : public peripheral
 private:
   I2C_TypeDef *efri2c;
   I2C_Init_TypeDef *initI2c;
-
+  I2C_TransferSeq_TypeDef *dataSet;
+  uint16_t address;
 public:
   i2c();
-  i2c(I2C_TypeDef *myI2c,I2C_Init_TypeDef *myi2cDef);
+  i2c(I2C_TypeDef *myI2c,I2C_Init_TypeDef *myi2cDef , uint16_t deviceAddr);
 
   int open(void);
   int close(void);
   int read(uint8_t *data);
   int write(uint8_t *data);
   int ioctl(uint8_t *data);
+  int readWrite(uint8_t *txData , uint8_t *rxData);
 };
 
 #endif /* PERIPHERAL_H_ */

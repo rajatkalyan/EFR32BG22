@@ -418,19 +418,148 @@ Discarded input sections
  .debug_macro   0x00000000       0xd6 ./main.o
  .group         0x00000000        0xc ./peripheral.o
  .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
+ .group         0x00000000        0xc ./peripheral.o
  .text          0x00000000        0x0 ./peripheral.o
  .data          0x00000000        0x0 ./peripheral.o
  .bss           0x00000000        0x0 ./peripheral.o
- .debug_info    0x00000000       0x21 ./peripheral.o
- .debug_abbrev  0x00000000       0x13 ./peripheral.o
+ .text._ZN3i2c4openEv
+                0x00000000        0xe ./peripheral.o
+ .text._ZN3i2c5closeEv
+                0x00000000        0xe ./peripheral.o
+ .text._ZN3i2c4readEPh
+                0x00000000        0xe ./peripheral.o
+ .text._ZN3i2cC2Ev
+                0x00000000        0xc ./peripheral.o
+ .text._ZN3i2cC2EP11I2C_TypeDefP16I2C_Init_TypeDef
+                0x00000000       0x10 ./peripheral.o
+ .rodata._ZTV3i2c
+                0x00000000       0x1c ./peripheral.o
+ .debug_info    0x00000000      0xc63 ./peripheral.o
+ .debug_abbrev  0x00000000      0x344 ./peripheral.o
+ .debug_loc     0x00000000      0x13e ./peripheral.o
  .debug_aranges
-                0x00000000       0x18 ./peripheral.o
- .debug_macro   0x00000000       0x1a ./peripheral.o
+                0x00000000       0x40 ./peripheral.o
+ .debug_ranges  0x00000000       0x30 ./peripheral.o
+ .debug_macro   0x00000000      0x288 ./peripheral.o
  .debug_macro   0x00000000      0xb3e ./peripheral.o
  .debug_macro   0x00000000       0x10 ./peripheral.o
- .debug_line    0x00000000       0xae ./peripheral.o
- .debug_str     0x00000000     0x30c1 ./peripheral.o
+ .debug_macro   0x00000000       0x16 ./peripheral.o
+ .debug_macro   0x00000000       0x1c ./peripheral.o
+ .debug_macro   0x00000000       0x22 ./peripheral.o
+ .debug_macro   0x00000000       0x56 ./peripheral.o
+ .debug_macro   0x00000000       0x51 ./peripheral.o
+ .debug_macro   0x00000000      0x103 ./peripheral.o
+ .debug_macro   0x00000000       0x6a ./peripheral.o
+ .debug_macro   0x00000000      0x1df ./peripheral.o
+ .debug_macro   0x00000000      0x773 ./peripheral.o
+ .debug_macro   0x00000000       0x1c ./peripheral.o
+ .debug_macro   0x00000000       0x29 ./peripheral.o
+ .debug_macro   0x00000000      0x110 ./peripheral.o
+ .debug_macro   0x00000000     0x17ea ./peripheral.o
+ .debug_macro   0x00000000       0x5e ./peripheral.o
+ .debug_macro   0x00000000       0x16 ./peripheral.o
+ .debug_macro   0x00000000      0xe4f ./peripheral.o
+ .debug_macro   0x00000000     0x12bd ./peripheral.o
+ .debug_macro   0x00000000      0x87c ./peripheral.o
+ .debug_macro   0x00000000      0x300 ./peripheral.o
+ .debug_macro   0x00000000       0x34 ./peripheral.o
+ .debug_macro   0x00000000      0x304 ./peripheral.o
+ .debug_macro   0x00000000      0x456 ./peripheral.o
+ .debug_macro   0x00000000      0x4a1 ./peripheral.o
+ .debug_macro   0x00000000      0x156 ./peripheral.o
+ .debug_macro   0x00000000      0x764 ./peripheral.o
+ .debug_macro   0x00000000      0x363 ./peripheral.o
+ .debug_macro   0x00000000     0x14f4 ./peripheral.o
+ .debug_macro   0x00000000       0x10 ./peripheral.o
+ .debug_macro   0x00000000      0x997 ./peripheral.o
+ .debug_macro   0x00000000     0x2b9a ./peripheral.o
+ .debug_macro   0x00000000      0xcb2 ./peripheral.o
+ .debug_macro   0x00000000       0x4c ./peripheral.o
+ .debug_macro   0x00000000     0x15b8 ./peripheral.o
+ .debug_macro   0x00000000     0x210a ./peripheral.o
+ .debug_macro   0x00000000      0x53c ./peripheral.o
+ .debug_macro   0x00000000      0xfe5 ./peripheral.o
+ .debug_macro   0x00000000      0x955 ./peripheral.o
+ .debug_macro   0x00000000       0x34 ./peripheral.o
+ .debug_macro   0x00000000      0x308 ./peripheral.o
+ .debug_macro   0x00000000      0x6a7 ./peripheral.o
+ .debug_macro   0x00000000      0x618 ./peripheral.o
+ .debug_macro   0x00000000      0x91e ./peripheral.o
+ .debug_macro   0x00000000     0x1b1b ./peripheral.o
+ .debug_macro   0x00000000      0x76b ./peripheral.o
+ .debug_macro   0x00000000      0x8f3 ./peripheral.o
+ .debug_macro   0x00000000     0x14b5 ./peripheral.o
+ .debug_macro   0x00000000      0x688 ./peripheral.o
+ .debug_macro   0x00000000      0x464 ./peripheral.o
+ .debug_macro   0x00000000     0x141b ./peripheral.o
+ .debug_macro   0x00000000     0x15c0 ./peripheral.o
+ .debug_macro   0x00000000     0x1384 ./peripheral.o
+ .debug_macro   0x00000000     0x155c ./peripheral.o
+ .debug_macro   0x00000000      0x2d0 ./peripheral.o
+ .debug_macro   0x00000000      0x26c ./peripheral.o
+ .debug_macro   0x00000000       0x1c ./peripheral.o
+ .debug_macro   0x00000000      0xc98 ./peripheral.o
+ .debug_macro   0x00000000       0x3f ./peripheral.o
+ .debug_line    0x00000000      0x8f2 ./peripheral.o
+ .debug_str     0x00000000    0xc6779 ./peripheral.o
  .comment       0x00000000       0x4a ./peripheral.o
+ .debug_frame   0x00000000       0x80 ./peripheral.o
  .ARM.attributes
                 0x00000000       0x3a ./peripheral.o
  .group         0x00000000       0x10 ./timer.o
