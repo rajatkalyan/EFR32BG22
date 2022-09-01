@@ -11,23 +11,28 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <em_i2c.h>
+#include <em_cmu.h>
 
-enum class Errors
+enum class Errors:int
 {
   errorNone,
-  errorRead,
-  errorWrite,
-  errorInit,
+  errorTransferDone,
+  errorTransferInProgress,
+  errorTransferNack,
+  errorTransferBusErr,
+  errorTransferArbLost,
+  errorTransferUsageFault,
+  errorTransferSwFault
 };
 
 class peripheral
 {
 public:
-  virtual int open(void)=0;
-  virtual int close(void)=0;
-  virtual int read(uint8_t *data)=0;
-  virtual int write(uint8_t *data)=0;
-  virtual int ioctl(uint8_t *data)=0;
+  virtual Errors open(void)=0;
+  virtual Errors close(void)=0;
+  virtual Errors read(uint8_t *data)=0;
+  virtual Errors write(uint8_t *data)=0;
+  virtual Errors ioctl(uint8_t *data)=0;
 };
 
 
@@ -42,12 +47,12 @@ public:
   i2c();
   i2c(I2C_TypeDef *myI2c,I2C_Init_TypeDef *myi2cDef , uint16_t deviceAddr);
 
-  int open(void);
-  int close(void);
-  int read(uint8_t *data);
-  int write(uint8_t *data);
-  int ioctl(uint8_t *data);
-  int readWrite(uint8_t *txData , uint8_t *rxData);
+  Errors open(void);
+  Errors close(void);
+  Errors read(uint8_t *data);
+  Errors write(uint8_t *data);
+  Errors ioctl(uint8_t *data);
+  Errors readWrite(uint8_t *txData , uint8_t *rxData);
 };
 
 #endif /* PERIPHERAL_H_ */

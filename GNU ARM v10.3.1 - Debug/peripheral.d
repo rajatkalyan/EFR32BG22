@@ -48,7 +48,17 @@ peripheral.o: ../peripheral.cpp \
  C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\Device\SiliconLabs\EFR32BG22\Include/efr32bg22_prs_signals.h \
  C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\Device\SiliconLabs\EFR32BG22\Include/efr32bg22_dma_descriptor.h \
  C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\Device\SiliconLabs\EFR32BG22\Include/efr32bg22_ldmaxbar_defines.h \
- C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\autogen/sl_component_catalog.h
+ C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\autogen/sl_component_catalog.h \
+ C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_cmu.h \
+ C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\common\inc/sl_assert.h \
+ C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_bus.h \
+ C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_core.h \
+ C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\common\inc/sl_common.h \
+ C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\common\inc/sl_assert.h \
+ C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\config/emlib_core_debug_config.h \
+ C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_cmu_compat.h \
+ C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_gpio.h \
+ C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\common\inc/sl_enum.h
 C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\common\toolchain\inc/sl_gcc_preinclude.h:
 ../peripheral.h:
 C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_i2c.h:
@@ -99,3 +109,13 @@ C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\
 C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\Device\SiliconLabs\EFR32BG22\Include/efr32bg22_dma_descriptor.h:
 C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\Device\SiliconLabs\EFR32BG22\Include/efr32bg22_ldmaxbar_defines.h:
 C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\autogen/sl_component_catalog.h:
+C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_cmu.h:
+C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\common\inc/sl_assert.h:
+C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_bus.h:
+C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_core.h:
+C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\common\inc/sl_common.h:
+C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\common\inc/sl_assert.h:
+C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\config/emlib_core_debug_config.h:
+C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_cmu_compat.h:
+C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_gpio.h:
+C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\common\inc/sl_enum.h:
