@@ -7,8 +7,8 @@
 
 #include "bme280.h"
 
-Bme280::Bme280(i2c *bmei2c)
-      :_bmei2c(bmei2c)
+Bme280::Bme280(peripheral *bmeP)
+      :_bmeP(bmeP)
 {
 
 }

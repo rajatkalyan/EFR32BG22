@@ -27,45 +27,21 @@
 #include "em_i2c.h"
 #include "peripheral.h"
 
+
+#define led_pin   0
+#define sensorenablepin 4
+
+uint8_t sensor_init();
+void ledhandle();
+
 void app_init(void)
 {
-
-  uint8_t dataByte =0x89;
-  Errors i2cError;
-  TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
-  TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
-  I2C_Init_TypeDef myi2c = I2C_INIT_DEFAULT;
-
-
-
-  //Pointer to virtual timer class
-  efrtimers *timer = new efrtimer3(&timerInit , &timerCCInit , 37500);
-
-  //GPIO Object
-  gpio myled(0,gpioModePushPull,gpioPortB);
-
-  //i2c object
-  peripheral *myperipheral  =  new i2c(I2C0,&myi2c,0x76);
-
-  myled.setPin();
-
-  timer->startTimer();
-
-  myperipheral->open();
-
-  i2cError = myperipheral->write(&dataByte);
-
-  myperipheral->close();
-  while(true)
-    {
-      if(timer->timeoutoccured())
-        {
-          timer->cleartimerflags();
-          myled.togglePin();
-        }
-    }
+  sensor_init();
+  ledhandle();
 
 }
+
+
 
 
 /***************************************************************************//**
@@ -75,6 +51,56 @@ void app_init(void)
 void app_process_action(void)
 {
 
+}
 
+
+uint8_t sensor_init()
+{
+
+    uint8_t dataByte =0x89;
+    Errors i2cError = Errors::errorNone;
+    I2C_Init_TypeDef myi2c = I2C_INIT_DEFAULT;
+
+    gpio sensorenable(sensorenablepin,gpioModePushPull,gpioPortA);
+    sensorenable.setPin();
+
+    //i2c object
+    peripheral *myperipheral  =  new i2c(I2C0,&myi2c,0x40);
+
+    myperipheral->open();
+    i2cError = myperipheral->write(&dataByte);
+
+    myperipheral->close();
+    return 0;
 
 }
+
+
+void ledhandle()
+{
+  TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
+  TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
+
+
+  //Pointer to virtual timer class
+   efrtimers *timer = new efrtimer3(&timerInit , &timerCCInit , 37500);
+
+  //GPIO Object
+  gpio myled(led_pin,gpioModePushPull,gpioPortB);
+
+  myled.clearPin();
+
+  myled.setPin();
+  timer->startTimer();
+  while(true)
+    {
+      if(timer->timeoutoccured())
+        {
+          timer->cleartimerflags();
+          myled.togglePin();
+        }
+    }
+}
+
+
+

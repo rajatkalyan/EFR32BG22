@@ -13,9 +13,9 @@
 class Bme280
 {
 private:
-  i2c *_bmei2c;
+  peripheral *_bmeP;
 public:
-  Bme280(i2c *bmei2c);
+  Bme280(peripheral *bmeP);
   float getTemperature(void);
   float getHumidity(void);
   uint16_t getPressure(void);

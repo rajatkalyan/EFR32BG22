@@ -58,7 +58,9 @@ peripheral.o: ../peripheral.cpp \
  C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\config/emlib_core_debug_config.h \
  C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_cmu_compat.h \
  C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_gpio.h \
- C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\common\inc/sl_enum.h
+ C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\common\inc/sl_enum.h \
+ C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_gpio.h \
+ C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\service\udelay\inc/sl_udelay.h
 C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\common\toolchain\inc/sl_gcc_preinclude.h:
 ../peripheral.h:
 C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_i2c.h:
@@ -119,3 +121,5 @@ C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\config/emlib_core_debug_c
 C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_cmu_compat.h:
 C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_gpio.h:
 C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\common\inc/sl_enum.h:
+C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\emlib\inc/em_gpio.h:
+C:\Users\91987\SimplicityStudio\v5_workspace\empty_cpp\gecko_sdk_4.1.1\platform\service\udelay\inc/sl_udelay.h:

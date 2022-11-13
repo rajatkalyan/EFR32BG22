@@ -12,7 +12,8 @@
 #include <stdint.h>
 #include <em_i2c.h>
 #include <em_cmu.h>
-
+#include <em_gpio.h>
+#include <stdio.h>
 enum class Errors:int
 {
   errorNone,
@@ -32,7 +33,7 @@ public:
   virtual Errors close(void)=0;
   virtual Errors read(uint8_t *data)=0;
   virtual Errors write(uint8_t *data)=0;
-  virtual Errors ioctl(uint8_t *data)=0;
+  virtual Errors ioctl(uint8_t *data,uint8_t *rxData)=0;
 };
 
 
@@ -52,7 +53,7 @@ public:
   Errors read(uint8_t *data);
   Errors write(uint8_t *data);
   Errors ioctl(uint8_t *data);
-  Errors readWrite(uint8_t *txData , uint8_t *rxData);
+  Errors ioctl(uint8_t *txData , uint8_t *rxData);
 };
 
 #endif /* PERIPHERAL_H_ */
