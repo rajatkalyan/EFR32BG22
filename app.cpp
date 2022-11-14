@@ -32,12 +32,14 @@
 #define sensorenablepin 4
 
 uint8_t sensor_init();
-void ledhandle();
+void ledOn();
+void ledOff();
 
 void app_init(void)
 {
+  ledOn();
   sensor_init();
-  ledhandle();
+  ledOff();
 
 }
 
@@ -61,6 +63,7 @@ uint8_t sensor_init()
     Errors i2cError = Errors::errorNone;
     I2C_Init_TypeDef myi2c = I2C_INIT_DEFAULT;
 
+
     gpio sensorenable(sensorenablepin,gpioModePushPull,gpioPortA);
     sensorenable.setPin();
 
@@ -68,7 +71,9 @@ uint8_t sensor_init()
     peripheral *myperipheral  =  new i2c(I2C0,&myi2c,0x40);
 
     myperipheral->open();
-    i2cError = myperipheral->write(&dataByte);
+
+
+   i2cError = myperipheral->write(&dataByte);
 
     myperipheral->close();
     return 0;
@@ -76,7 +81,7 @@ uint8_t sensor_init()
 }
 
 
-void ledhandle()
+void ledOn()
 {
   TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
   TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
@@ -91,16 +96,23 @@ void ledhandle()
   myled.clearPin();
 
   myled.setPin();
-  timer->startTimer();
-  while(true)
-    {
-      if(timer->timeoutoccured())
-        {
-          timer->cleartimerflags();
-          myled.togglePin();
-        }
-    }
+
 }
 
+void ledOff()
+{
+  TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
+  TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
+
+
+  //Pointer to virtual timer class
+   efrtimers *timer = new efrtimer3(&timerInit , &timerCCInit , 37500);
+
+  //GPIO Object
+  gpio myled(led_pin,gpioModePushPull,gpioPortB);
+
+  myled.clearPin();
+
+}
 
 

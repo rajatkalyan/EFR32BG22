@@ -102,24 +102,21 @@ Errors i2c::read(uint8_t *data)
 
 Errors i2c::write(uint8_t *data)
   {
+
   I2C_TransferReturn_TypeDef writeError=i2cTransferInProgress;
 
 
   //ChangedataSet values to Write only flagshere
    dataSet->addr = address<<1;
+
    dataSet->flags = I2C_FLAG_WRITE;
    dataSet->buf[0].data = data;
    dataSet->buf[0].len  = 1;
 
    uint32_t timeout = I2CSPM_TRANSFER_TIMEOUT;
-   /* Do a polled transfer */
-  writeError = I2C_TransferInit(efri2c, dataSet);
-   while (writeError == i2cTransferInProgress && timeout--) {
+   // Do a polled transfer
 
-   }
-  // I2C_TransferInit(efri2c,dataSet);
-
- //  writeError=I2C_Transfer(efri2c);
+   writeError = I2C_TransferInit(efri2c, dataSet);
 
     switch(writeError)
     {
@@ -146,6 +143,7 @@ Errors i2c::write(uint8_t *data)
         break;
 
     }
+
     return Errors::errorTransferDone;
   }
 
