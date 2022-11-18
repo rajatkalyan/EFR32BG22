@@ -34,12 +34,14 @@
 uint8_t sensor_init();
 void ledOn();
 void ledOff();
+void ledBlink(uint32_t milliseconds);
+
 
 void app_init(void)
 {
   ledOn();
   sensor_init();
-  ledOff();
+  ledBlink(1000);
 
 }
 
@@ -49,6 +51,20 @@ void app_init(void)
 /***************************************************************************//**
  * App ticking function.
  ******************************************************************************/
+
+
+efrtimers *  timerInit(uint32_t millisecond)
+{
+  TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
+  TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
+
+
+  //Pointer to virtual timer class
+   efrtimers *timer = new efrtimer3(&timerInit , &timerCCInit , 37500);
+
+   return timer;
+}
+
 
 void app_process_action(void)
 {
@@ -83,13 +99,6 @@ uint8_t sensor_init()
 
 void ledOn()
 {
-  TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
-  TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
-
-
-  //Pointer to virtual timer class
-   efrtimers *timer = new efrtimer3(&timerInit , &timerCCInit , 37500);
-
   //GPIO Object
   gpio myled(led_pin,gpioModePushPull,gpioPortB);
 
@@ -101,12 +110,6 @@ void ledOn()
 
 void ledOff()
 {
-  TIMER_Init_TypeDef timerInit = TIMER_INIT_DEFAULT;
-  TIMER_InitCC_TypeDef timerCCInit = TIMER_INITCC_DEFAULT;
-
-
-  //Pointer to virtual timer class
-   efrtimers *timer = new efrtimer3(&timerInit , &timerCCInit , 37500);
 
   //GPIO Object
   gpio myled(led_pin,gpioModePushPull,gpioPortB);
@@ -114,5 +117,29 @@ void ledOff()
   myled.clearPin();
 
 }
+
+
+void ledBlink(uint32_t milliseconds)
+{
+
+  gpio myled(led_pin,gpioModePushPull,gpioPortB);
+
+  myled.clearPin();
+
+  efrtimers *ledtimer = timerInit(milliseconds);
+  ledtimer->startTimer();
+
+  while(true)
+    {
+        if(ledtimer->timeoutoccured())
+          {
+            ledtimer->cleartimerflags();
+            myled.togglePin();
+
+          }
+    }
+}
+
+
 
 
